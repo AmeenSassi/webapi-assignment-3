@@ -34,7 +34,7 @@ UserSchema.methods.comparePassword = function(password, callback) {
     });
 };
 
-var ActorSchema = new ActorSchema({
+var ActorSchema = new Schema({
     actorname: {type: String, required: true, index: {unique: false}},
     charactername: {type: String, required: true, index: {unique: false}}
 });
