@@ -11,6 +11,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(passport.initialize());
 
+mongoose.connect(process.env.DB);
+
 var router = express.Router();
 
 router.route('/postjwt')
@@ -89,10 +91,81 @@ router.post('/signin', function(req, res) {
                 res.status(401).send({success: false, msg: 'Authentication failed. Wrong password.'});
             }
         });
-
-
     });
 });
+
+router.route('/movies').post(authJwtController.isAuthenticated, function (req, res) {
+    if (!req.body.title || !req.body.year || !req.body.genre) {
+    res.json({success: false, msg: 'Please pass title, year and genre.'});
+    }
+    else {
+        var movieNew = new Movie();
+        movieNew.title = req.body.title;
+        movieNew.year = req.body.year;
+        movieNew.genre = req.body.genre;
+        // save the movie
+        movieNew.save(function(err) {
+            if (err) {
+                // duplicate entry
+                if (err.code == 11000)
+                    return res.json({ success: false, message: 'That movie already exists in this database. '});
+                else
+                    return res.send(err);
+            }
+            res.json({ message: 'Movie added!' });
+        });
+    }
+});
+
+router.route('/movies').get(authJwtController.isAuthenticated, function (req, res) {
+    Movie.find(function (err, movies) {
+        if (err) res.send(err);
+        // return the movies
+        res.json(movies);
+    });
+});
+
+router.route('/movies/:movieId').put(authJwtController.isAuthenticated, function (req, res) {
+    var id = req.params.movieId;
+    Movie.findById(id, function(err, movie) {
+        if (err) res.send(err);
+        // return the movies
+
+        if (req.body.title) movie.title = req.body.title;
+        if (req.body.year) movie.year = req.body.year;
+        if (req.body.genre) movie.genre = req.body.genre;
+        if (req.body.actors) movie.actors = movie.actors;
+
+        //save movie
+        movie.save(function (err) {
+            if (err) res.send(err);
+
+            // return a message
+            res.json({message: 'Movie updated!'});
+        });
+    });
+});
+
+router.route('/movies/:movieId').get(authJwtController.isAuthenticated, function (req, res) {
+    var id = req.params.movieId;
+    Movie.findById(id, function(err, movie) {
+            if (err) res.send(err);
+
+            var movieJson = JSON.stringify(movie);
+            // return that movie
+            res.json(movie);
+        });
+    });
+
+router.route('/movies/:movieId').delete(authJwtController.isAuthenticated, function (req, res) {
+    var id = req.params.movieId;
+    Movie.remove({ _id: id }, function(err, movie) {
+        if (err) return res.send(err);
+
+        res.json({ message: 'Successfully deleted' });
+    });
+});
+
 
 app.use('/', router);
 app.listen(process.env.PORT || 8080);
