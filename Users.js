@@ -55,4 +55,3 @@ MovieSchema.pre('save',function(next){
 
 // return the model
 module.exports = mongoose.model('User', UserSchema);
-module.exports = mongoose.model('Movies', MovieSchema);
