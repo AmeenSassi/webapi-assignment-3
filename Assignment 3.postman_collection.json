@@ -1,0 +1,165 @@
+{
+	"info": {
+		"name": "Assignment 3",
+		"_postman_id": "e32593a0-9e02-78c2-a059-8079b0204b7f",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Movies/Post",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"Title\": \"The Great Amin-Man\",\n\t\"Year\": 2001,\n\t\"Genre\": \"Comedy\",\n\t\"Actors\": {\n\t\t{\n\t\t\t\"actorname\": \"Ameen\",\n\t\t\t\"charactername\": \"Amin-Man\"\n\t\t},\n\t\t\n\t\t{\n\t\t\t\"actorname\": \"Neema\",\n\t\t\t\"charactername\": \"Nima-Man\"\n\t\t\t\n\t\t},\n\t\t\n\t\t{\n\t\t\t\"actorname\": \"Samson\",\n\t\t\t\"charactername\": \"Simson-Man\"\n\t\t\t\n\t\t}\n\t} \n}"
+				},
+				"url": {
+					"raw": "https://web-assignment-3.herokuapp.com/movies",
+					"protocol": "https",
+					"host": [
+						"web-assignment-3",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"movies"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Movies/Get",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "https://web-assignment-3.herokuapp.com/movies",
+					"protocol": "https",
+					"host": [
+						"web-assignment-3",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"movies"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Movies/Put",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "https://web-assignment-3.herokuapp.com/",
+					"protocol": "https",
+					"host": [
+						"web-assignment-3",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						""
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Movies/Delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "https://web-assignment-3.herokuapp.com/",
+					"protocol": "https",
+					"host": [
+						"web-assignment-3",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						""
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "User/Signup",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"Neema Issas\",\n\t\"username\": \"neemaman\",\n\t\"password\": \"123\"\n}"
+				},
+				"url": {
+					"raw": "https://web-assignment-3.herokuapp.com/signup",
+					"protocol": "https",
+					"host": [
+						"web-assignment-3",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"signup"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "User/SignupLocal",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"Neema Issas\",\n\t\"username\": \"neemaman\",\n\t\"password\": \"123\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/signup",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"signup"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
