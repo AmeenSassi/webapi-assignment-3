@@ -40,10 +40,19 @@
 			"name": "Movies/Get",
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVhYTllZDliNjYxNDBiMmFhNDEwNmMyMCIsInVzZXJuYW1lIjoibmVlbWFtYW4iLCJpYXQiOjE1MjE1NzkzOTN9.Yw5y209Dv5ZpireT2IOYqpBp9WrXTF8t5D8Hk4JxNdA"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
 				"body": {},
 				"url": {
-					"raw": "https://web-assignment-3.herokuapp.com/movies",
+					"raw": "https://web-assignment-3.herokuapp.com/movies/5ab1746dfc11fb0004def7a5",
 					"protocol": "https",
 					"host": [
 						"web-assignment-3",
@@ -51,7 +60,8 @@
 						"com"
 					],
 					"path": [
-						"movies"
+						"movies",
+						"5ab1746dfc11fb0004def7a5"
 					]
 				},
 				"description": ""
@@ -62,10 +72,22 @@
 			"name": "Movies/Put",
 			"request": {
 				"method": "PUT",
-				"header": [],
-				"body": {},
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVhYTllZDliNjYxNDBiMmFhNDEwNmMyMCIsInVzZXJuYW1lIjoibmVlbWFtYW4iLCJpYXQiOjE1MjE1NzYwNTd9.GByuWVJ9n0YWtwuGgExwkXVx9wNX22Ee-Gf6EfIFLTE"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"title\": \"The Great Amin-Man\",\n\t\"year\": 2001,\n\t\"genre\": \"Comedy\",\n\t\"actors\": [\n\t\t\n\t\t{\n\t\t\t\"actorname\": \"Ameeno-boi\",\n\t\t\t\"charactername\": \"Amin-Man\"\n\t\t}, \n\t\t\n\t\t{\n\t\t\t\"actorname\": \"Neema\",\n\t\t\t\"charactername\": \"Nima-Man\"\n\t\t},\n\t\t\n\t\t{\n\t\t\t\"actorname\": \"Samson\",\n\t\t\t\"charactername\": \"Simson-Man\"\n\t\t}\n\t\t]\n} "
+				},
 				"url": {
-					"raw": "https://web-assignment-3.herokuapp.com/",
+					"raw": "https://web-assignment-3.herokuapp.com/movies/5ab1746dfc11fb0004def7a5",
 					"protocol": "https",
 					"host": [
 						"web-assignment-3",
@@ -73,7 +95,8 @@
 						"com"
 					],
 					"path": [
-						""
+						"movies",
+						"5ab1746dfc11fb0004def7a5"
 					]
 				},
 				"description": ""
@@ -84,10 +107,19 @@
 			"name": "Movies/Delete",
 			"request": {
 				"method": "DELETE",
-				"header": [],
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVhYTllZDliNjYxNDBiMmFhNDEwNmMyMCIsInVzZXJuYW1lIjoibmVlbWFtYW4iLCJpYXQiOjE1MjE1NzYwNTd9.GByuWVJ9n0YWtwuGgExwkXVx9wNX22Ee-Gf6EfIFLTE"
+					}
+				],
 				"body": {},
 				"url": {
-					"raw": "https://web-assignment-3.herokuapp.com/",
+					"raw": "https://web-assignment-3.herokuapp.com/movies/5ab17277fc11fb0004def7a1",
 					"protocol": "https",
 					"host": [
 						"web-assignment-3",
@@ -95,7 +127,8 @@
 						"com"
 					],
 					"path": [
-						""
+						"movies",
+						"5ab17277fc11fb0004def7a1"
 					]
 				},
 				"description": ""
