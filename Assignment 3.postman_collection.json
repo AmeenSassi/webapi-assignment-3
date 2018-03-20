@@ -133,6 +133,36 @@
 			"response": []
 		},
 		{
+			"name": "User/Signin",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"Neema Issas\",\n\t\"username\": \"neemaman\",\n\t\"password\": \"123\"\n}"
+				},
+				"url": {
+					"raw": "https://web-assignment-3.herokuapp.com/signup",
+					"protocol": "https",
+					"host": [
+						"web-assignment-3",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"signup"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
 			"name": "User/SignupLocal",
 			"request": {
 				"method": "POST",

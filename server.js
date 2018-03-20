@@ -97,7 +97,7 @@ router.post('/signin', function(req, res) {
 });
 
 router.route('/movies').post(authJwtController.isAuthenticated, function (req, res) {
-    if (!req.body.title || !req.body.year || !req.body.genre) {
+    if (!req.body.title || !req.body.year || !req.body.genre || !req.body.actors) {
     res.json({success: false, msg: 'Please pass title, year and genre.'});
     }
     else {
@@ -105,6 +105,7 @@ router.route('/movies').post(authJwtController.isAuthenticated, function (req, r
         movieNew.title = req.body.title;
         movieNew.year = req.body.year;
         movieNew.genre = req.body.genre;
+        movieNew.actors = req.body.actors;
         // save the movie
         movieNew.save(function(err) {
             if (err) {

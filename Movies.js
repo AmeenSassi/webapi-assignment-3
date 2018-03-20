@@ -11,7 +11,7 @@ var MovieSchema = new Schema({
     title: { type: String, required: true, index: { unique: false }},
     year: {type: Number, required: true, index: {unique: true}},
     genre: {type: String, enum: ["Action", "Adventure", "Comedy", "Drama", "Fantasy", "Horror", "Mystery", "Thriller", "Western"]},
-    actors: {type: [ActorSchema], min: 3, max: 3}
+    actors: {type: [ActorSchema], min: 3}
 });
 
 MovieSchema.pre('save',function(next){
